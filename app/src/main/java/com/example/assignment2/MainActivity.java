@@ -1,4 +1,3 @@
-// MainActivity.java
 package com.example.assignment2;
 
 import android.content.Intent;
@@ -9,42 +8,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private MainViewModel mainViewModel;
+    private ButtonController aboutButtonController;
+    private ButtonController buildButtonController;
+    private ButtonController addonsButtonController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mainViewModel = new MainViewModel();
+        aboutButtonController = new ButtonController();
+        buildButtonController = new ButtonController();
+        addonsButtonController = new ButtonController();
 
         // Find buttons by their IDs
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
+        Button addonsButton = findViewById(R.id.addOnsButton);
 
-        // Apply button styling
-        ButtonStyler.applyStyle(aboutButton);
-        ButtonStyler.applyStyle(buildButton);
+        // Apply the style and click action to buttons
+        ButtonController.applyStyle(aboutButton);
+        ButtonController.setButtonClickAction(aboutButton, MainActivity.class);
 
-        // Set up click listeners
-        aboutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click for the About button
-                // Start a new instance of MainActivity
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-                // You can add additional actions or configurations here if needed
-            }
-        });
+        ButtonController.applyStyle(buildButton);
+        ButtonController.setButtonClickAction(buildButton, BuildActivity.class);
 
-        buildButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start BuildActivity when the Build button is clicked
-                Intent intent = new Intent(MainActivity.this, BuildActivity.class);
-                startActivity(intent);
-            }
-        });
+        ButtonController.applyStyle(addonsButton);
+        ButtonController.setButtonClickAction(addonsButton, AddonsActivity.class);
     }
 }

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 public class MainViewModel extends ViewModel {
-    private MainModel mainModel = new MainModel();
+    private final MainModel mainModel = new MainModel();
 
     public LiveData<MainModel> getMainModel() {
         MutableLiveData<MainModel> liveData = new MutableLiveData<>();

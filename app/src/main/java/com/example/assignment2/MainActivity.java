@@ -6,38 +6,49 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 
-// MainActivity acts as the View in the MVC pattern
 public class MainActivity extends AppCompatActivity {
-
-    private MainController controller; // Controller instance
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Instantiate the controller passing 'this' as the view
-        controller = new MainController(this);
-
         // Find buttons by their IDs
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
+
+        // Set the width of the buttons to be half of the screen width
+        setButtonWidthHalfScreen(aboutButton);
+        setButtonWidthHalfScreen(buildButton);
 
         // Set up click listeners
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Notify the controller that the "About" button is clicked
-                controller.onAboutButtonClick();
+                // Handle the click for the About button
+                // Start a new instance of MainActivity
+                Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(intent);
+                // You can add additional actions or configurations here if needed
             }
         });
 
         buildButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Notify the controller that the "Build" button is clicked
-                controller.onBuildButtonClick();
+                // Start BuildActivity when the Build button is clicked
+                Intent intent = new Intent(MainActivity.this, BuildActivity.class);
+                startActivity(intent);
             }
         });
+    }
+
+    // Method to set the width of a button to be half of the screen width
+    private void setButtonWidthHalfScreen(Button button) {
+        // Get the screen width
+        int screenWidth = getResources().getDisplayMetrics().widthPixels;
+
+        // Set the width of the button to be half of the screen width
+        button.getLayoutParams().width = screenWidth / 2;
     }
 }

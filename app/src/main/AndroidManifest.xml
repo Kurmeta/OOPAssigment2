@@ -27,8 +27,18 @@
             android:name=".BuildActivity"
             android:exported="true">
         </activity>
-
-        <!-- Add other activity entries as needed -->
+        <activity
+            android:name=".AddonsActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".CheckoutActivity"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".FinishedActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 

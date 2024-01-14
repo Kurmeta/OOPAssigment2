@@ -5,16 +5,16 @@ import android.widget.Button;
 
 public class ButtonController {
 
-    public static void applyStyle(Button button) {
+    public void applyStyle(Button button) {
         // Set text size
-        button.setTextSize(18);
+        button.setTextSize(25);
 
         // Set button height
-        int buttonHeight = 120;
+        int buttonHeight = 200;
         button.getLayoutParams().height = buttonHeight;
     }
 
-    public static void setButtonClickAction(Button button, final Class<?> targetClass) {
+    public void setButtonClickAction(Button button, final Class<?> targetClass) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

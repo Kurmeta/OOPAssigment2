@@ -6,13 +6,18 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 
-
+// MainActivity acts as the View in the MVC pattern
 public class MainActivity extends AppCompatActivity {
+
+    private MainController controller; // Controller instance
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Instantiate the controller passing 'this' as the view
+        controller = new MainController(this);
 
         // Find buttons by their IDs
         Button aboutButton = findViewById(R.id.aboutButton);
@@ -22,20 +27,16 @@ public class MainActivity extends AppCompatActivity {
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click for the About button
-                // Start a new instance of MainActivity
-                Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                startActivity(intent);
-                // You can add additional actions or configurations here if needed
+                // Notify the controller that the "About" button is clicked
+                controller.onAboutButtonClick();
             }
         });
 
         buildButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start BuildActivity when the Build button is clicked
-                Intent intent = new Intent(MainActivity.this, BuildActivity.class);
-                startActivity(intent);
+                // Notify the controller that the "Build" button is clicked
+                controller.onBuildButtonClick();
             }
         });
     }

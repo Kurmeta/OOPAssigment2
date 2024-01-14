@@ -1,10 +1,11 @@
+// BuildActivity.java
 package com.example.assignment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
 
 public class BuildActivity extends AppCompatActivity {
 
@@ -17,9 +18,9 @@ public class BuildActivity extends AppCompatActivity {
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
 
-        // Set the width of the buttons to be half of the screen width
-        setButtonWidthHalfScreen(aboutButton);
-        setButtonWidthHalfScreen(buildButton);
+        // Apply button styling
+        ButtonStyler.applyStyle(aboutButton);
+        ButtonStyler.applyStyle(buildButton);
 
         // Set up click listeners for the buttons in activity_build.xml
         aboutButton.setOnClickListener(new View.OnClickListener() {
@@ -40,14 +41,5 @@ public class BuildActivity extends AppCompatActivity {
                 // You can perform any actions or start activities related to building here
             }
         });
-    }
-
-    // Method to set the width of a button to be half of the screen width
-    private void setButtonWidthHalfScreen(Button button) {
-        // Get the screen width
-        int screenWidth = getResources().getDisplayMetrics().widthPixels;
-
-        // Set the width of the button to be half of the screen width
-        button.getLayoutParams().width = screenWidth / 2;
     }
 }

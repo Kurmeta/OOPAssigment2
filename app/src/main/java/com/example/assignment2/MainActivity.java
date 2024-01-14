@@ -1,25 +1,30 @@
+// MainActivity.java
 package com.example.assignment2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
-import android.content.Intent;
 
 public class MainActivity extends AppCompatActivity {
+
+    private MainViewModel mainViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mainViewModel = new MainViewModel();
+
         // Find buttons by their IDs
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
 
-        // Set the width of the buttons to be half of the screen width
-        setButtonWidthHalfScreen(aboutButton);
-        setButtonWidthHalfScreen(buildButton);
+        // Apply button styling
+        ButtonStyler.applyStyle(aboutButton);
+        ButtonStyler.applyStyle(buildButton);
 
         // Set up click listeners
         aboutButton.setOnClickListener(new View.OnClickListener() {
@@ -41,14 +46,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    // Method to set the width of a button to be half of the screen width
-    private void setButtonWidthHalfScreen(Button button) {
-        // Get the screen width
-        int screenWidth = getResources().getDisplayMetrics().widthPixels;
-
-        // Set the width of the button to be half of the screen width
-        button.getLayoutParams().width = screenWidth / 2;
     }
 }

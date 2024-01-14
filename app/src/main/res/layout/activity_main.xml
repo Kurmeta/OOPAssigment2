@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B5A64"
+    android:isScrollContainer="true"
+    android:scrollbarAlwaysDrawHorizontalTrack="true"
+    android:scrollbars="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="204dp"
+        android:layout_height="86dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/About"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionEditText"
+        app:layout_constraintVertical_bias="0.302" />
+
+    <Button
+        android:id="@+id/buildButton"
+        android:layout_width="215dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Build"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionEditText"
+        app:layout_constraintVertical_bias="0.31" />
+
+    <EditText
+        android:id="@+id/descriptionEditText"
+        android:layout_width="335dp"
+        android:layout_height="288dp"
+        android:layout_marginTop="4dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="@string/ShopDesc"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shopImageView"
+        tools:ignore="LabelFor" />
+
+    <ImageView
+        android:id="@+id/shopImageView"
+        android:layout_width="258dp"
+        android:layout_height="340dp"
+        android:layout_marginTop="28dp"
+        android:scaleType="centerInside"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        app:srcCompat="@drawable/store_front"
+        tools:src="@drawable/store_front"
+        tools:srcCompat="@drawable/store_front"
+        android:contentDescription="@string/ShopPicDesc" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="412dp"
+        android:layout_height="75dp"
+        android:background="#FFC107"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.407"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/aboutUsEditText"
+        android:layout_width="256dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="4dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/About_Us"
+        android:textAlignment="center"
+        android:textColor="#2B5A64"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

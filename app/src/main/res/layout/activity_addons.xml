@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B5A64"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/checkoutToolbar"
+        android:layout_width="413dp"
+        android:layout_height="81dp"
+        android:background="#FFC107"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/builderNameEditText"
+        android:layout_width="256dp"
+        android:layout_height="65dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/Builder"
+        android:textAlignment="center"
+        android:textColor="#2B5A64"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/checkoutToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/checkoutToolbar"
+        app:layout_constraintTop_toTopOf="@+id/checkoutToolbar"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/buildButton"
+        android:layout_width="212dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Build"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/checkoutButton"
+        android:layout_width="179dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="140dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Checkout"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addOnsRadioGroup"
+        app:layout_constraintVertical_bias="0.936" />
+
+    <RadioGroup
+        android:id="@+id/addOnsRadioGroup"
+        android:layout_width="261dp"
+        android:layout_height="321dp"
+        app:layout_constraintBottom_toTopOf="@+id/buildButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutToolbar"
+        app:layout_constraintVertical_bias="0.445">
+
+        <RadioButton
+            android:id="@+id/addOn1RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddOn_1"
+            android:textColor="#FFC107" />
+
+        <RadioButton
+            android:id="@+id/addOn2RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddOn_2"
+            android:textColor="#FFC107" />
+
+        <RadioButton
+            android:id="@+id/addOn3RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddOn_3"
+            android:textColor="#FFC107" />
+
+        <RadioButton
+            android:id="@+id/addOn4RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddOn_4"
+            android:textColor="#FFC107" />
+
+        <RadioButton
+            android:id="@+id/addOn5RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddOn_5"
+            android:textColor="#FFC107" />
+
+        <RadioButton
+            android:id="@+id/addOn6RadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/AddOn_6"
+            android:textColor="#FFC107" />
+
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/addOnsDescEditText"
+        android:layout_width="391dp"
+        android:layout_height="66dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/AddOnsDesc"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/addOnsRadioGroup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutToolbar"
+        app:layout_constraintVertical_bias="0.483"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="217dp"
+        android:layout_height="75dp"
+        android:layout_marginEnd="200dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/About"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

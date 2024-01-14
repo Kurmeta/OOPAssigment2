@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B5A64"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/gamingPCDescEditText"
+        android:layout_width="197dp"
+        android:layout_height="92dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="@string/GamingPCDesc"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/waterCooledPCDescEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/officePCDescEditText"
+        app:layout_constraintVertical_bias="0.483"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/waterCooledPCDescEditText"
+        android:layout_width="197dp"
+        android:layout_height="92dp"
+        android:layout_marginBottom="64dp"
+        android:autofillHints=""
+        android:background="@null"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="@string/WaterCooledPCDesc"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/addOnsButton"
+        app:layout_constraintEnd_toStartOf="@+id/specInfoImageView"
+        app:layout_constraintHorizontal_bias="0.322"
+        app:layout_constraintStart_toEndOf="@+id/waterCooledRadioButton"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/officePCDescEditText"
+        android:layout_width="197dp"
+        android:layout_height="92dp"
+        android:layout_marginTop="56dp"
+        android:background="@null"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="@string/OfficePCDesc"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pcToolbar"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/pcToolbar"
+        android:layout_width="413dp"
+        android:layout_height="81dp"
+        android:background="#FFC107"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/builderEditText"
+        android:layout_width="256dp"
+        android:layout_height="65dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/Builder"
+        android:textAlignment="center"
+        android:textColor="#2B5A64"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/pcToolbar"
+        app:layout_constraintEnd_toEndOf="@+id/pcToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pcToolbar"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="202dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/About"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addOnsButton" />
+
+    <Button
+        android:id="@+id/buildButton"
+        android:layout_width="214dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Build"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addOnsButton" />
+
+    <RadioButton
+        android:id="@+id/officeRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:text="@string/Office"
+        android:textColor="#FFC107"
+        app:layout_constraintEnd_toStartOf="@+id/officePCDescEditText"
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pcToolbar" />
+
+    <RadioButton
+        android:id="@+id/waterCooledRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Water_Cooled"
+        android:textColor="#FFC107"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.624" />
+
+    <RadioButton
+        android:id="@+id/gamingRadioButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Gaming"
+        android:textColor="#FFC107"
+        app:layout_constraintBottom_toTopOf="@+id/waterCooledRadioButton"
+        app:layout_constraintEnd_toStartOf="@+id/gamingPCDescEditText"
+        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/officeRadioButton"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <Button
+        android:id="@+id/addOnsButton"
+        android:layout_width="179dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="84dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Add_Ons"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waterCooledRadioButton" />
+
+    <ImageView
+        android:id="@+id/specInfoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:contentDescription="@string/WaterCooledPCSpec"
+        app:layout_constraintBottom_toTopOf="@+id/buildButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gamingPCSpecImageView"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@android:drawable/ic_dialog_info" />
+
+    <ImageView
+        android:id="@+id/gamingPCSpecImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/buildButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.449"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        android:contentDescription="@string/GamingPCSpec" />
+
+    <ImageView
+        android:id="@+id/officePCSpecImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/gamingPCSpecImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toEndOf="@+id/officePCDescEditText"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.539"
+        app:srcCompat="@android:drawable/ic_dialog_info"
+        android:contentDescription="@string/OfficePCSpec" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

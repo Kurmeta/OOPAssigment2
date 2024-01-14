@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#2B5A64"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/orderConfirmationEditText"
+        android:layout_width="339dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="104dp"
+        android:background="@null"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="@string/Order_TYMSG"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderConfirmedEditText"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/orderToolbar"
+        android:layout_width="413dp"
+        android:layout_height="81dp"
+        android:background="#FFC107"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/checkoutEditText"
+        android:layout_width="256dp"
+        android:layout_height="65dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/Checkout"
+        android:textAlignment="center"
+        android:textColor="#2B5A64"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/orderToolbar"
+        app:layout_constraintEnd_toEndOf="@+id/orderToolbar"
+        app:layout_constraintStart_toStartOf="@+id/orderToolbar"
+        app:layout_constraintTop_toTopOf="@+id/orderToolbar"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/orderConfirmedEditText"
+        android:layout_width="392dp"
+        android:layout_height="77dp"
+        android:layout_marginTop="148dp"
+        android:background="@null"
+        android:clickable="false"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/Order_Confirmed"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderToolbar"
+        android:autofillHints=""
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/aboutButton"
+        android:layout_width="204dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="176dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/About"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="@+id/buildButton"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnButton" />
+
+    <Button
+        android:id="@+id/buildButton"
+        android:layout_width="213dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Build"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnButton" />
+
+    <Button
+        android:id="@+id/returnButton"
+        android:layout_width="179dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="140dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Return"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderConfirmationEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

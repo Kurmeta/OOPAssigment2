@@ -63,10 +63,8 @@
 
     <Button
         android:id="@+id/aboutButton"
-        android:layout_width="215dp"
-        android:layout_height="83dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="72dp"
+        android:layout_width="206dp"
+        android:layout_height="70dp"
         android:backgroundTint="#FFC107"
         android:text="@string/About"
         android:textColor="#2B5A64"
@@ -81,8 +79,8 @@
 
     <Button
         android:id="@+id/buildButton"
-        android:layout_width="221dp"
-        android:layout_height="85dp"
+        android:layout_width="210dp"
+        android:layout_height="70dp"
         android:layout_marginTop="76dp"
         android:backgroundTint="#FFC107"
         android:text="@string/Build"
@@ -115,10 +113,13 @@
         android:layout_height="329dp"
         android:layout_marginBottom="24dp"
         android:autofillHints=""
+        android:background="@null"
         android:ems="10"
-        android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="@string/Checkout_Desc"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/confirmButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"

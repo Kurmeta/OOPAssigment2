@@ -4,6 +4,7 @@
     <string name="WaterCooledPCDesc">Water cooled PC with custom loop, silent performance, and stunning aesthetics.</string>
     <string name="OfficePCDesc">This custom-built PC is reliable, powerful, and suitable for any home or office work.</string>
     <string name="Builder">Builder</string>
+    <string name="selected_pc">Selected PC: %s</string>selected_pc
     <string name="About">About</string>
     <string name="Build">Build</string>
     <string name="Office">Office</string>
@@ -17,7 +18,7 @@
     <string name="About_Us">About Us</string>
     <string name="ShopDesc">At Exe Computer Supplies, we are passionate about providing you with the best custom built computers for your needs. Whether you are a gamer, a designer, a student, or a professional, we have the right solution for you. We use only the highest quality components and offer a range of options to suit your budget and preferences. We also provide excellent after-sales service and technical support to ensure your satisfaction. Exe Computer Supplies is a shop based in Devon, and we have been serving our loyal customers since 2020. Come and visit us today and see why we are the best choice for custom built computers in the region.</string>
     <string name="AddOnsDesc">Please Select Any Addons You would Like:</string>
-    <string name="Checkout"><![CDATA[Checkout >]]></string>
+    <string name="Checkout">Checkout</string>
     <string name="AddOn_1">Mouse</string>
     <string name="AddOn_2">Keyboard</string>
     <string name="AddOn_3">Headset</string>

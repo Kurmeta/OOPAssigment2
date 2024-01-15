@@ -1,0 +1,31 @@
+<!-- res/layout/popup_layout.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#FFC107"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/popupTitleTextView"
+        android:layout_width="289dp"
+        android:layout_height="55dp"
+        android:background="#2B5A64"
+        android:editable="false"
+        android:textAlignment="center"
+        android:textColor="#FFC107"
+        android:textIsSelectable="false"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/popupContentTextView"
+        android:layout_width="289dp"
+        android:layout_height="262dp"
+        android:layout_marginTop="8dp"
+        android:background="#2B5A64"
+        android:textAlignment="viewStart"
+        android:textColor="#FFC107"
+        android:textIsSelectable="false" />
+
+</LinearLayout>

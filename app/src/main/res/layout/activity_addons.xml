@@ -64,13 +64,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addOnsRadioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/addOnsCheckboxLayout"
         app:layout_constraintVertical_bias="0.936" />
 
-    <RadioGroup
-        android:id="@+id/addOnsRadioGroup"
+    <!-- Use a LinearLayout for checkboxes instead of RadioGroup -->
+    <LinearLayout
+        android:id="@+id/addOnsCheckboxLayout"
         android:layout_width="261dp"
-        android:layout_height="321dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/buildButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
@@ -78,49 +80,54 @@
         app:layout_constraintTop_toBottomOf="@+id/checkoutToolbar"
         app:layout_constraintVertical_bias="0.445">
 
-        <RadioButton
-            android:id="@+id/addOn1RadioButton"
+        <!-- Use CheckBox elements for each item -->
+        <CheckBox
+            android:id="@+id/addOn1CheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFC107"
             android:text="@string/AddOn_1"
             android:textColor="#FFC107" />
 
-        <RadioButton
-            android:id="@+id/addOn2RadioButton"
+        <CheckBox
+            android:id="@+id/addOn2CheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFC107"
             android:text="@string/AddOn_2"
             android:textColor="#FFC107" />
-
-        <RadioButton
-            android:id="@+id/addOn3RadioButton"
+        <CheckBox
+            android:id="@+id/addOn3CheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFC107"
             android:text="@string/AddOn_3"
             android:textColor="#FFC107" />
-
-        <RadioButton
-            android:id="@+id/addOn4RadioButton"
+        <CheckBox
+            android:id="@+id/addOn4CheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFC107"
             android:text="@string/AddOn_4"
             android:textColor="#FFC107" />
-
-        <RadioButton
-            android:id="@+id/addOn5RadioButton"
+        <CheckBox
+            android:id="@+id/addOn5CheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFC107"
             android:text="@string/AddOn_5"
             android:textColor="#FFC107" />
-
-        <RadioButton
-            android:id="@+id/addOn6RadioButton"
+        <CheckBox
+            android:id="@+id/addOn6CheckBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:buttonTint="#FFC107"
             android:text="@string/AddOn_6"
             android:textColor="#FFC107" />
 
-    </RadioGroup>
+
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/addOnsDescEditText"
@@ -136,7 +143,7 @@
         android:textColor="#FFC107"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/addOnsRadioGroup"
+        app:layout_constraintBottom_toTopOf="@+id/addOnsCheckboxLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkoutToolbar"
@@ -147,13 +154,15 @@
         android:id="@+id/aboutButton"
         android:layout_width="217dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="200dp"
+        android:layout_marginEnd="192dp"
         android:backgroundTint="#FFC107"
         android:text="@string/About"
         android:textColor="#2B5A64"
         android:textSize="24sp"
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutButton"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

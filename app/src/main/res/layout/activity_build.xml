@@ -21,17 +21,17 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/waterCooledPCDescEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/officePCDescEditText"
-        app:layout_constraintVertical_bias="0.483"
+        app:layout_constraintVertical_bias="0.464"
         tools:ignore="LabelFor" />
 
     <EditText
         android:id="@+id/waterCooledPCDescEditText"
         android:layout_width="197dp"
         android:layout_height="92dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="292dp"
         android:autofillHints=""
         android:background="@null"
         android:ems="10"
@@ -40,17 +40,18 @@
         android:textAlignment="center"
         android:textColor="#FFC107"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/addOnsButton"
-        app:layout_constraintEnd_toStartOf="@+id/specInfoImageView"
-        app:layout_constraintHorizontal_bias="0.322"
-        app:layout_constraintStart_toEndOf="@+id/waterCooledRadioButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="LabelFor" />
 
     <EditText
         android:id="@+id/officePCDescEditText"
         android:layout_width="197dp"
         android:layout_height="92dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="72dp"
+        android:autofillHints=""
         android:background="@null"
         android:ems="10"
         android:inputType="textMultiLine"
@@ -58,11 +59,12 @@
         android:textAlignment="center"
         android:textColor="#FFC107"
         android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.677"
+        app:layout_constraintHorizontal_bias="0.714"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pcToolbar"
-        android:autofillHints=""
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="LabelFor" />
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -130,59 +132,79 @@
         app:layout_constraintTop_toBottomOf="@+id/addOnsButton"
         app:layout_constraintVertical_bias="1.0" />
 
-    <RadioButton
-        android:id="@+id/officeRadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="@string/Office"
-        android:textColor="#FFC107"
-        app:layout_constraintEnd_toStartOf="@+id/officePCDescEditText"
-        app:layout_constraintHorizontal_bias="0.213"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pcToolbar" />
-
-    <RadioButton
-        android:id="@+id/waterCooledRadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Water_Cooled"
-        android:textColor="#FFC107"
+    <RadioGroup
+        android:id="@+id/pcTypeRadioGroup"
+        android:layout_width="130dp"
+        android:layout_height="546dp"
+        android:layout_marginTop="48dp"
+        android:divider="@android:color/transparent"
+        android:dividerPadding="0dp"
+        android:orientation="vertical"
+        android:showDividers="none"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.624" />
+        app:layout_constraintTop_toBottomOf="@+id/pcToolbar"
+        app:layout_constraintVertical_bias="0.1">
 
-    <RadioButton
-        android:id="@+id/gamingRadioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/Gaming"
-        android:textColor="#FFC107"
-        app:layout_constraintBottom_toTopOf="@+id/waterCooledRadioButton"
-        app:layout_constraintEnd_toStartOf="@+id/gamingPCDescEditText"
-        app:layout_constraintHorizontal_bias="0.253"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/officeRadioButton"
-        app:layout_constraintVertical_bias="0.497" />
+        <RadioButton
+            android:id="@+id/officeRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="138dp"
+            android:buttonTint="#FFC107"
+            android:text="@string/Office"
+            android:textColor="#FFC107"
+            app:layout_constraintEnd_toStartOf="@+id/officePCDescEditText"
+            app:layout_constraintHorizontal_bias="0.213"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioButton
+            android:id="@+id/waterCooledRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="126dp"
+            android:buttonTint="#FFC107"
+            android:text="@string/Water_Cooled"
+            android:textColor="#FFC107"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.054"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.624" />
+
+        <RadioButton
+            android:id="@+id/gamingRadioButton"
+            android:layout_width="match_parent"
+            android:layout_height="136dp"
+            android:buttonTint="#FFC107"
+            android:text="@string/Gaming"
+            android:textColor="#FFC107"
+            app:layout_constraintBottom_toTopOf="@+id/waterCooledRadioButton"
+            app:layout_constraintEnd_toStartOf="@+id/gamingPCDescEditText"
+            app:layout_constraintHorizontal_bias="0.253"
+            app:layout_constraintTop_toBottomOf="@+id/officeRadioButton"
+            app:layout_constraintVertical_bias="0.497" />
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/addOnsButton"
         android:layout_width="179dp"
         android:layout_height="74dp"
-        android:layout_marginTop="84dp"
+        android:layout_marginTop="68dp"
         android:backgroundTint="#FFC107"
+        android:enabled="false"
         android:text="@string/Add_Ons"
         android:textColor="#2B5A64"
         android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waterCooledRadioButton" />
+        app:layout_constraintTop_toBottomOf="@+id/waterCooledPCDescEditText"
+        app:layout_constraintVertical_bias="0.097" />
 
     <ImageView
-        android:id="@+id/specInfoImageView"
+        android:id="@+id/waterSpecInfoImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="144dp"

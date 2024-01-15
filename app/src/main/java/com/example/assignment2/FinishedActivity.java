@@ -41,8 +41,10 @@ public class FinishedActivity extends AppCompatActivity {
         buildButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click for the Build button in activity_build.xml
-                // You can perform any actions or start activities related to building here
+                // Handle the click for the Build button in activity_main.xml
+                // Start BuildActivity when the Build button is clicked
+                Intent intent = new Intent(FinishedActivity.this, BuildActivity.class);
+                startActivity(intent);
             }
         });
 

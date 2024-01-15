@@ -121,6 +121,8 @@ public class BuildActivity extends AppCompatActivity {
             }
         });
 
+        // Set up click listeners for the buttons in activity_build.xml
+
         officePCSpecImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

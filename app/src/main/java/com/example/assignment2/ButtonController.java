@@ -1,3 +1,4 @@
+// ButtonController.java
 package com.example.assignment2;
 
 import android.view.View;
@@ -14,13 +15,20 @@ public class ButtonController {
         button.getLayoutParams().height = buttonHeight;
     }
 
-    public void setButtonClickAction(Button button, final Class<?> targetClass) {
+    public void setButtonClickAction(Button button, final ClickAction clickAction) {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Handle button click
                 // You can perform any actions or start activities related to the button here
+                if (clickAction != null) {
+                    clickAction.onClick();
+                }
             }
         });
+    }
+
+    public interface ClickAction {
+        void onClick();
     }
 }

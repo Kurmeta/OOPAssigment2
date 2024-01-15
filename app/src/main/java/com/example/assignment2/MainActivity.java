@@ -1,13 +1,14 @@
+// MainActivity.java
 package com.example.assignment2;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         buttonController = new ButtonController();
-        mainViewModel = new MainViewModel();
+        mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
         // Find buttons by their IDs
         Button aboutButton = findViewById(R.id.aboutButton);
@@ -51,28 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-    public static class MainModel {
-        private String buildButtonText;
 
-        public String getBuildButtonText() {
-            return buildButtonText;
-        }
-
-        public void setBuildButtonText(String buildButtonText) {
-            this.buildButtonText = buildButtonText;
-        }
-    }
-    public static class MainViewModel extends ViewModel {
-        private final MainModel mainModel = new MainModel();
-
-        public LiveData<MainModel> getMainModel() {
-            MutableLiveData<MainModel> liveData = new MutableLiveData<>();
-            liveData.setValue(mainModel);
-            return liveData;
-        }
-        public void updateBuildButtonText(String newText) {
-            mainModel.setBuildButtonText(newText);
-        }
+        // Update the UI based on changes in the ViewModel
+        mainViewModel.getModelLiveData().observe(this, new Observer<Model>() {
+            @Override
+            public void onChanged(Model model) {
+                // Update UI elements using data from the ViewModel
+                // Example: set buildButtonText to a TextView
+                // textView.setText(model.getBuildButtonText());
+            }
+        });
     }
 }

@@ -1,3 +1,4 @@
+// BuildActivity.java
 package com.example.assignment2;
 
 import android.content.Intent;
@@ -14,22 +15,26 @@ import android.widget.TextView;
 import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 public class BuildActivity extends AppCompatActivity {
 
-    private Button addonsButton; // Declare the button as a class member
+    private ButtonController buttonController;
+    private BuildViewModel buildViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build);
 
-        ButtonController buttonController = new ButtonController();
+        buttonController = new ButtonController();
+        buildViewModel = new ViewModelProvider(this).get(BuildViewModel.class);
 
         // Find buttons by their IDs in activity_build.xml
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
-        addonsButton = findViewById(R.id.addOnsButton);
+        Button addonsButton = findViewById(R.id.addOnsButton);
 
         // Find ImageViews by their IDs in activity_build.xml
         ImageView gamingPCSpecImageView = findViewById(R.id.gamingPCSpecImageView);
@@ -52,7 +57,6 @@ public class BuildActivity extends AppCompatActivity {
                 // Start a new instance of MainActivity
                 Intent intent = new Intent(BuildActivity.this, MainActivity.class);
                 startActivity(intent);
-                // You can add additional actions or configurations here if needed
             }
         });
 
@@ -87,7 +91,6 @@ public class BuildActivity extends AppCompatActivity {
                 }
             }
         });
-
 
         // Set up radio group listener
         pcTypeRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {

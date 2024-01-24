@@ -20,11 +20,14 @@ public class FinishedActivity extends AppCompatActivity {
 
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
+        Button ordersButton = findViewById(R.id.ordersButton);
         Button returnButton = findViewById(R.id.returnButton);
 
-        buttonController.applyStyle(aboutButton);
-        buttonController.applyStyle(buildButton);
-        buttonController.applyStyle(returnButton);
+        // Apply style with the context of the activity
+        buttonController.applyStyle(aboutButton, this);
+        buttonController.applyStyle(buildButton, this);
+        buttonController.applyStyle(ordersButton, this);
+        buttonController.applyStyle(returnButton, this);
 
         finishedViewModel = new ViewModelProvider(this).get(FinishedViewModel.class);
 
@@ -48,6 +51,14 @@ public class FinishedActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FinishedActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ordersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FinishedActivity.this, OrdersActivity.class);
                 startActivity(intent);
             }
         });

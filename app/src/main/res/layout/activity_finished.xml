@@ -11,7 +11,7 @@
         android:id="@+id/orderConfirmationEditText"
         android:layout_width="339dp"
         android:layout_height="58dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginBottom="288dp"
         android:autofillHints=""
         android:background="@null"
         android:ems="10"
@@ -24,7 +24,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderConfirmedEditText"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.797"
         tools:ignore="LabelFor" />
 
     <com.google.android.material.appbar.MaterialToolbar
@@ -64,7 +64,7 @@
         android:id="@+id/orderConfirmedEditText"
         android:layout_width="392dp"
         android:layout_height="77dp"
-        android:layout_marginTop="148dp"
+        android:layout_marginBottom="484dp"
         android:autofillHints=""
         android:background="@null"
         android:clickable="false"
@@ -80,13 +80,13 @@
         app:layout_constraintHorizontal_bias="0.473"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderToolbar"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="1.0"
         tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/aboutButton"
-        android:layout_width="204dp"
-        android:layout_height="82dp"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
         android:backgroundTint="#FFC107"
         android:text="@string/About"
         android:textColor="#2B5A64"
@@ -100,12 +100,11 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/buildButton"
-        android:layout_width="213dp"
-        android:layout_height="82dp"
-        android:layout_marginTop="72dp"
+        android:id="@+id/ordersButton"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
         android:backgroundTint="#FFC107"
-        android:text="@string/Build"
+        android:text="@string/Orders"
         android:textColor="#2B5A64"
         android:textSize="24sp"
         app:cornerRadius="0dp"
@@ -117,10 +116,26 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
+        android:id="@+id/buildButton"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Build"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/returnButton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
         android:id="@+id/returnButton"
         android:layout_width="179dp"
         android:layout_height="74dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginBottom="120dp"
         android:backgroundTint="#FFC107"
         android:text="@string/Return"
         android:textColor="#2B5A64"
@@ -129,6 +144,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderConfirmationEditText"
-        app:layout_constraintVertical_bias="0.141" />
+        app:layout_constraintVertical_bias="0.741" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

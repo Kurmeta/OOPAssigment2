@@ -15,26 +15,21 @@ import android.widget.TextView;
 import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 public class BuildActivity extends AppCompatActivity {
-
-    private ButtonController buttonController;
-    private BuildViewModel buildViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_build);
 
-        buttonController = new ButtonController();
-        buildViewModel = new ViewModelProvider(this).get(BuildViewModel.class);
+        ButtonController buttonController = new ButtonController();
 
         // Find buttons by their IDs in activity_build.xml
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
-        Button addonsButton = findViewById(R.id.addOnsButton);
+        Button ordersButton = findViewById(R.id.ordersButton);
+        Button addonsButton = findViewById(R.id.addonsButton);
 
         // Find ImageViews by their IDs in activity_build.xml
         ImageView gamingPCSpecImageView = findViewById(R.id.gamingPCSpecImageView);
@@ -44,28 +39,31 @@ public class BuildActivity extends AppCompatActivity {
         // Find the RadioGroup and set up the RadioButtons
         RadioGroup pcTypeRadioGroup = findViewById(R.id.pcTypeRadioGroup);
 
-        // Apply styling to buttons
-        buttonController.applyStyle(aboutButton);
-        buttonController.applyStyle(buildButton);
-        buttonController.applyStyle(addonsButton);
+        // Apply style with the context of the activity
+        buttonController.applyStyle(aboutButton, this);
+        buttonController.applyStyle(buildButton, this);
+        buttonController.applyStyle(ordersButton, this);
+        buttonController.applyStyle(addonsButton, this);
 
         // Set up click listeners for the buttons in activity_build.xml
-        aboutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click for the About button in activity_build.xml
-                // Start a new instance of MainActivity
-                Intent intent = new Intent(BuildActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        aboutButton.setOnClickListener(v -> {
+            // Handle the click for the About button in activity_build.xml
+            // Start a new instance of MainActivity
+            Intent intent = new Intent(BuildActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
-        buildButton.setOnClickListener(new View.OnClickListener() {
+        buildButton.setOnClickListener(v -> {
+            // Handle the click for the Build button in activity_main.xml
+            // Start BuildActivity when the Build button is clicked
+            Intent intent = new Intent(BuildActivity.this, BuildActivity.class);
+            startActivity(intent);
+        });
+
+        ordersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Handle the click for the Build button in activity_main.xml
-                // Start BuildActivity when the Build button is clicked
-                Intent intent = new Intent(BuildActivity.this, BuildActivity.class);
+                Intent intent = new Intent(BuildActivity.this, OrdersActivity.class);
                 startActivity(intent);
             }
         });
@@ -183,11 +181,6 @@ public class BuildActivity extends AppCompatActivity {
         popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
 
         // Dismiss the popup window when clicked
-        popupView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                popupWindow.dismiss();
-            }
-        });
+        popupView.setOnClickListener(v -> popupWindow.dismiss());
     }
 }

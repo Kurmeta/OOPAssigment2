@@ -26,9 +26,23 @@
     <string name="AddOn_5">RGB Light Strip</string>
     <string name="AddOn_6">Cable Tidy</string>
     <string name="Your_Order">Your Order:</string>
+    <string name="Orders">Orders</string>
     <string name="Confirm">Confirm</string>
     <string name="Checkout_Desc">Test</string>
     <string name="Return">Return</string>
     <string name="Order_TYMSG">Thank you for your order. We will be in contact soon!</string>
     <string name="Order_Confirmed">Order Confirmed!</string>
+    <string name="orders_placed">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="addorremove">+/-</string>
+    <string name="clear">Clear</string>
+    <string-array name="addon_strings">
+        <item>Mouse</item>
+        <item>Keyboard</item>
+        <item>Headset</item>
+        <item>Speakers</item>
+        <item>RGB Light Strip</item>
+        <item>Cable Tidy</item>
+    </string-array>
+
 </resources>

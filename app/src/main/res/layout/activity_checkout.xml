@@ -24,6 +24,7 @@
         android:id="@+id/checkoutEditText"
         android:layout_width="256dp"
         android:layout_height="65dp"
+        android:autofillHints=""
         android:background="@null"
         android:clickable="false"
         android:ems="10"
@@ -36,15 +37,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/checkoutToolbar"
         app:layout_constraintEnd_toEndOf="@+id/checkoutToolbar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/checkoutToolbar"
-        android:autofillHints=""
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="LabelFor" />
 
     <EditText
         android:id="@+id/yourOrderEditText"
         android:layout_width="256dp"
         android:layout_height="65dp"
-        android:layout_marginBottom="40dp"
+        android:autofillHints=""
         android:background="@null"
         android:clickable="false"
         android:ems="10"
@@ -58,13 +58,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        android:autofillHints=""
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87"
         tools:ignore="LabelFor" />
 
     <Button
         android:id="@+id/aboutButton"
-        android:layout_width="206dp"
-        android:layout_height="70dp"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
         android:backgroundTint="#FFC107"
         android:text="@string/About"
         android:textColor="#2B5A64"
@@ -78,10 +79,25 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
+        android:id="@+id/ordersButton"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Orders"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmButton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
         android:id="@+id/buildButton"
-        android:layout_width="210dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="76dp"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
         android:backgroundTint="#FFC107"
         android:text="@string/Build"
         android:textColor="#2B5A64"
@@ -89,29 +105,45 @@
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/aboutButton"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/confirmButton"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/confirmButton"
-        android:layout_width="179dp"
-        android:layout_height="74dp"
-        android:layout_marginBottom="176dp"
+        android:layout_width="177dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="72dp"
         android:backgroundTint="#FFC107"
         android:text="@string/Confirm"
         android:textColor="#2B5A64"
         android:textSize="24sp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutDescEditText"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addonsButton"
+        android:layout_width="92dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/addorremove"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/confirmButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutDescEditText" />
 
     <EditText
         android:id="@+id/checkoutDescEditText"
         android:layout_width="338dp"
         android:layout_height="329dp"
-        android:layout_marginBottom="24dp"
         android:autofillHints=""
         android:background="@null"
         android:ems="10"
@@ -120,10 +152,12 @@
         android:textAlignment="center"
         android:textColor="#FFC107"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/confirmButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.39"
         tools:ignore="LabelFor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

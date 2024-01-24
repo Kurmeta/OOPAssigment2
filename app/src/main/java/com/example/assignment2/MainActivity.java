@@ -26,10 +26,14 @@ public class MainActivity extends AppCompatActivity {
         // Find buttons by their IDs
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
+        Button ordersButton = findViewById(R.id.ordersButton);
+
 
         // Apply the style and click action to buttons
-        buttonController.applyStyle(aboutButton);
-        buttonController.applyStyle(buildButton);
+        // Apply style with the context of the activity
+        buttonController.applyStyle(aboutButton, this);
+        buttonController.applyStyle(buildButton, this);
+        buttonController.applyStyle(ordersButton, this);
 
         // Set up click listeners for the buttons
         aboutButton.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
                 // Handle the click for the Build button in activity_main.xml
                 // Start BuildActivity when the Build button is clicked
                 Intent intent = new Intent(MainActivity.this, BuildActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ordersButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, OrdersActivity.class);
                 startActivity(intent);
             }
         });

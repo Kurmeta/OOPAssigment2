@@ -40,7 +40,7 @@
 
     <Button
         android:id="@+id/buildButton"
-        android:layout_width="212dp"
+        android:layout_width="140dp"
         android:layout_height="75dp"
         android:backgroundTint="#FFC107"
         android:text="@string/Build"
@@ -49,8 +49,26 @@
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ordersButton"
+        android:layout_width="140dp"
+        android:layout_height="75dp"
+        android:backgroundTint="#FFC107"
+        android:text="@string/Orders"
+        android:textColor="#2B5A64"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutButton"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!-- Use a LinearLayout for checkboxes instead of RadioGroup -->
 
     <Button
         android:id="@+id/checkoutButton"
@@ -65,9 +83,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addOnsCheckboxLayout"
-        app:layout_constraintVertical_bias="0.936" />
+        app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Use a LinearLayout for checkboxes instead of RadioGroup -->
     <LinearLayout
         android:id="@+id/addOnsCheckboxLayout"
         android:layout_width="261dp"
@@ -152,9 +169,8 @@
 
     <Button
         android:id="@+id/aboutButton"
-        android:layout_width="217dp"
+        android:layout_width="140dp"
         android:layout_height="75dp"
-        android:layout_marginEnd="192dp"
         android:backgroundTint="#FFC107"
         android:text="@string/About"
         android:textColor="#2B5A64"
@@ -162,6 +178,8 @@
         app:cornerRadius="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/checkoutButton"
         app:layout_constraintVertical_bias="1.0" />
 

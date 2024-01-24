@@ -39,6 +39,10 @@
             android:name=".FinishedActivity"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".OrdersActivity"
+            android:exported="true">
+        </activity>
 
     </application>
 

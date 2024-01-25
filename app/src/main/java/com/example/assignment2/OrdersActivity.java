@@ -92,20 +92,8 @@ public class OrdersActivity extends AppCompatActivity {
                 StringBuilder formattedOrders = new StringBuilder();
                 int orderNumber = 1;
                 for (String order : orders) {
-                    // Split the order string into parts using spaces
-                    String[] orderParts = order.split("\\s+");
-
-                    // Check if there are at least two parts (Pc and Add-ons)
-                    if (orderParts.length >= 2) {
-                        // Join the Add-ons using commas
-                        String addons = orderParts.length > 2
-                                ? TextUtils.join(", ", Arrays.copyOfRange(orderParts, 2, orderParts.length))
-                                : "No addons";
-
-                        formattedOrders.append(String.format(Locale.getDefault(),
-                                "Order Number %d\nPC: %s\nAdd-Ons: %s\n\n",
-                                orderNumber++, orderParts[1], addons));
-                    }
+                    formattedOrders.append(String.format(Locale.getDefault(),
+                            "Order Number %d\n%s\n\n", orderNumber++, order));
                 }
                 ordersTextView.setText(formattedOrders.toString());
             }

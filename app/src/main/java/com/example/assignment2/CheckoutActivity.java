@@ -92,13 +92,11 @@ public class CheckoutActivity extends AppCompatActivity {
         List<String> selectedAddons = checkoutViewModel.getSelectedAddonsLiveData().getValue();
 
         if (selectedAddons != null && !selectedAddons.isEmpty()) {
-            // Join selected addons with commas
+            // Join selected addons with commas and avoid breaking them into separate words
+            String addonsString = TextUtils.join(", ", selectedAddons);
 
-            String str = TextUtils.join(", ", selectedAddons);
-            String addonsString = str.replace("Selected Addons:\n", "");
-
-            // Format the order details
-            String orderDetails = String.format(selectedPc, addonsString);
+            // Format the order detail with selected PC and addons
+            String orderDetails = String.format("PC: %s\nAdd-Ons: %s@", selectedPc, addonsString);
 
             // Add the order to the OrdersViewModel
             OrdersViewModel.addOrder(this, orderDetails);
@@ -124,13 +122,21 @@ public class CheckoutActivity extends AppCompatActivity {
                 for (String addon : selectedAddons) {
                     details.append(addon).append(", ");
                 }
-                details.setLength(details.length() - 2); // Remove the trailing comma and space
+                details.setLength(details.length() - 2); // Remove the trailing comma and spaces
             } else {
                 details.append("No addons selected");
             }
+
+            details.append("\n\n"); // Add a newline character to separate orders
+
+            // Clear existing text and then append new details
             orderDetailsTextView.setText(details.toString());
         }
     }
+
+
+
+
 
 
 

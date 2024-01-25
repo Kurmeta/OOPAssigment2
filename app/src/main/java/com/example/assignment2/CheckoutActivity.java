@@ -1,3 +1,5 @@
+// CheckoutActivity.java
+
 package com.example.assignment2;
 
 import android.text.TextUtils;
@@ -13,6 +15,8 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import java.util.List;
+
+// Activity for confirming and displaying the order details before checkout.
 public class CheckoutActivity extends AppCompatActivity {
 
     private ButtonController buttonController = new ButtonController();
@@ -21,20 +25,24 @@ public class CheckoutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_checkout);
+        setContentView(R.layout.activity_checkout); // Set the layout for this activity
 
+        // Find buttons by their IDs in activity_checkout.xml
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
         Button ordersButton = findViewById(R.id.ordersButton);
         Button confirmButton = findViewById(R.id.confirmButton);
 
+        // Apply styles to buttons
         buttonController.applyStyle(aboutButton, this);
         buttonController.applyStyle(buildButton, this);
         buttonController.applyStyle(ordersButton, this);
         buttonController.applyStyle(confirmButton, this);
 
+        // Initialize CheckoutViewModel
         checkoutViewModel = new ViewModelProvider(this).get(CheckoutViewModel.class);
 
+        // Observe changes in selected addons and update UI accordingly
         checkoutViewModel.getSelectedAddonsLiveData().observe(this, new Observer<List<String>>() {
             @Override
             public void onChanged(List<String> selectedAddons) {
@@ -42,11 +50,12 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
 
-        // Retrieve initial selected addons and update UI
+        // Retrieve initial selected addons from the intent and update UI
         List<String> initialSelectedAddons = getIntent().getStringArrayListExtra("selectedAddons");
         checkoutViewModel.setSelectedAddons(initialSelectedAddons);
         updateOrderDetails(initialSelectedAddons);
 
+        // Set click listener for the Confirm button
         confirmButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +63,7 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
 
+        // Set click listener for the Addons button
         Button addonsButton = findViewById(R.id.addonsButton);
         addonsButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +72,7 @@ public class CheckoutActivity extends AppCompatActivity {
             }
         });
 
+        // Set click listeners for other buttons to navigate to different activities
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +98,7 @@ public class CheckoutActivity extends AppCompatActivity {
         });
     }
 
+    // Method to confirm the order and navigate to FinishedActivity
     private void confirmOrder() {
         String selectedPc = getIntent().getStringExtra("selectedPc");
         List<String> selectedAddons = checkoutViewModel.getSelectedAddonsLiveData().getValue();
@@ -106,6 +118,7 @@ public class CheckoutActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    // Method to update UI with order details
     private void updateOrderDetails(List<String> selectedAddons) {
         // Update your UI elements with the order details
         // For example, set the text of a TextView
@@ -134,30 +147,29 @@ public class CheckoutActivity extends AppCompatActivity {
         }
     }
 
-
-
-
-
-
-
+    // Method to show a dialog for adding or removing addons
     private void showAddonsDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Add or Remove Addons");
 
+        // Get selected addons and addon strings from resources
         List<String> selectedAddons = checkoutViewModel.getSelectedAddonsLiveData().getValue();
         String[] addonStrings = getResources().getStringArray(R.array.addon_strings);
         boolean[] checkedItems = new boolean[addonStrings.length];
 
+        // Initialize checked items based on selected addons
         if (selectedAddons != null) {
             for (int i = 0; i < addonStrings.length; i++) {
                 checkedItems[i] = selectedAddons.contains(addonStrings[i]);
             }
         }
 
+        // Set up a multi-choice dialog for addons
         builder.setMultiChoiceItems(addonStrings, checkedItems, (dialog, which, isChecked) -> {
             checkedItems[which] = isChecked;
         });
 
+        // Set positive button click listener to apply changes
         builder.setPositiveButton("Apply", (dialog, which) -> {
             List<String> updatedAddons = new ArrayList<>();
             for (int i = 0; i < addonStrings.length; i++) {
@@ -168,8 +180,10 @@ public class CheckoutActivity extends AppCompatActivity {
             checkoutViewModel.setSelectedAddons(updatedAddons);
         });
 
+        // Set negative button click listener to cancel changes
         builder.setNegativeButton("Cancel", null);
 
+        // Create and show the dialog
         builder.create().show();
     }
 }

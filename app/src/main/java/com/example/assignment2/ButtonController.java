@@ -1,3 +1,5 @@
+// ButtonController.java
+
 package com.example.assignment2;
 
 import android.app.Activity;
@@ -6,6 +8,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 
+// Utility class for applying styles and setting click actions to buttons.
 public class ButtonController {
 
     // Apply style to the button (set text size, height, and width)

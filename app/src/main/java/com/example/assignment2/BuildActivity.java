@@ -1,4 +1,5 @@
 // BuildActivity.java
+
 package com.example.assignment2;
 
 import android.content.Intent;
@@ -6,22 +7,23 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.view.ViewGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+// Activity for building a PC, displaying options, and showing popups for PC specifications.
 public class BuildActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_build);
+        setContentView(R.layout.activity_build); // Set the layout for this activity
 
         ButtonController buttonController = new ButtonController();
 
@@ -119,8 +121,6 @@ public class BuildActivity extends AppCompatActivity {
             }
         });
 
-        // Set up click listeners for the buttons in activity_build.xml
-
         officePCSpecImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,6 +160,7 @@ public class BuildActivity extends AppCompatActivity {
         });
     }
 
+    // Method to show a popup with specified title and content
     private void showPopup(String title, String content) {
         // Inflate the popup_layout.xml
         View popupView = LayoutInflater.from(this).inflate(R.layout.popup_layout, null);

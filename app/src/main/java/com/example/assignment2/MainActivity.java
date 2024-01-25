@@ -1,4 +1,5 @@
 // MainActivity.java
+
 package com.example.assignment2;
 
 import android.content.Intent;
@@ -7,9 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+// The main entry point of the application.
 public class MainActivity extends AppCompatActivity {
 
     private ButtonController buttonController;
@@ -18,18 +19,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main); // Set the layout for this activity
 
+        // Initialize ButtonController and MainViewModel
         buttonController = new ButtonController();
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
 
-        // Find buttons by their IDs
+        // Find buttons by their IDs in activity_main.xml
         Button aboutButton = findViewById(R.id.aboutButton);
         Button buildButton = findViewById(R.id.buildButton);
         Button ordersButton = findViewById(R.id.ordersButton);
 
-
-        // Apply the style and click action to buttons
+        // Apply styles and click actions to buttons
         // Apply style with the context of the activity
         buttonController.applyStyle(aboutButton, this);
         buttonController.applyStyle(buildButton, this);
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 // Start a new instance of MainActivity
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 startActivity(intent);
-                // You can add additional actions or configurations here if needed
             }
         });
 
@@ -60,18 +60,9 @@ public class MainActivity extends AppCompatActivity {
         ordersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Start OrdersActivity when the Orders button is clicked
                 Intent intent = new Intent(MainActivity.this, OrdersActivity.class);
                 startActivity(intent);
-            }
-        });
-
-        // Update the UI based on changes in the ViewModel
-        mainViewModel.getModelLiveData().observe(this, new Observer<Model>() {
-            @Override
-            public void onChanged(Model model) {
-                // Update UI elements using data from the ViewModel
-                // Example: set buildButtonText to a TextView
-                // textView.setText(model.getBuildButtonText());
             }
         });
     }

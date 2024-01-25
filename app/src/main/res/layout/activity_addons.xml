@@ -68,8 +68,6 @@
         app:layout_constraintTop_toBottomOf="@+id/checkoutButton"
         app:layout_constraintVertical_bias="1.0" />
 
-    <!-- Use a LinearLayout for checkboxes instead of RadioGroup -->
-
     <Button
         android:id="@+id/checkoutButton"
         android:layout_width="179dp"
@@ -97,7 +95,6 @@
         app:layout_constraintTop_toBottomOf="@+id/checkoutToolbar"
         app:layout_constraintVertical_bias="0.445">
 
-        <!-- Use CheckBox elements for each item -->
         <CheckBox
             android:id="@+id/addOn1CheckBox"
             android:layout_width="match_parent"

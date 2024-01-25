@@ -1,3 +1,5 @@
+// OrdersActivity.java
+
 package com.example.assignment2;
 
 import android.content.Intent;
@@ -8,20 +10,23 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.List;
 import java.util.Locale;
-import java.util.Arrays;
-import android.text.TextUtils;
 import androidx.lifecycle.ViewModelProvider;
 
+// Activity class to display and manage orders
 public class OrdersActivity extends AppCompatActivity {
 
+    // ViewModel to handle orders data
     private OrdersViewModel ordersViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orders);
 
+        // Initialize the OrdersViewModel
         ordersViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication())).get(OrdersViewModel.class);
 
+        // Create an instance of ButtonController for styling and click actions
         ButtonController buttonController = new ButtonController();
 
         // Find buttons by their IDs
@@ -43,14 +48,13 @@ public class OrdersActivity extends AppCompatActivity {
                 // Call the clearOrders method when the button is clicked
                 ordersViewModel.clearOrders(OrdersActivity.this);
 
-                // Optionally, you can update the UI or perform any other actions after clearing orders
-                // For example, update the ordersTextView to show a message
                 TextView ordersTextView = findViewById(R.id.ordersTextView);
                 if (ordersTextView != null) {
                     ordersTextView.setText("No orders yet.");
                 }
             }
         });
+
         aboutButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -58,7 +62,6 @@ public class OrdersActivity extends AppCompatActivity {
                 // Start a new instance of MainActivity
                 Intent intent = new Intent(OrdersActivity.this, MainActivity.class);
                 startActivity(intent);
-                // You can add additional actions or configurations here if needed
             }
         });
 
@@ -75,20 +78,24 @@ public class OrdersActivity extends AppCompatActivity {
         ordersButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Start OrdersActivity when the Orders button is clicked
                 Intent intent = new Intent(OrdersActivity.this, OrdersActivity.class);
                 startActivity(intent);
             }
         });
 
-        List<String> orders = OrdersViewModel.getOrders(this);
+        // Retrieve orders from the ViewModel
+        List<String> orders = OrdersViewModel.getOrders(OrdersActivity.this);
+
+        // Find the TextView to display orders
         TextView ordersTextView = findViewById(R.id.ordersTextView);
 
-
+        // Update UI based on the retrieved orders
         if (ordersTextView != null) {
             if (orders.isEmpty()) {
                 ordersTextView.setText("No orders yet.");
             } else {
-                // Format each order as per the desired layout
+                // Format each order and display them in the TextView
                 StringBuilder formattedOrders = new StringBuilder();
                 int orderNumber = 1;
                 for (String order : orders) {
@@ -98,6 +105,5 @@ public class OrdersActivity extends AppCompatActivity {
                 ordersTextView.setText(formattedOrders.toString());
             }
         }
-
     }
 }

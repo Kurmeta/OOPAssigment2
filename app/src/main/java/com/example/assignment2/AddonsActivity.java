@@ -8,22 +8,53 @@ import android.widget.CompoundButton;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
+// This class represents the activity where users can select addons for their PC.
 public class AddonsActivity extends AppCompatActivity {
 
+    // Controller to manage button styles.
     private final ButtonController buttonController = new ButtonController();
+
+    // String to store the selected PC model.
     private String selectedPc;
+
+    // ArrayList to store the selected addons.
     private ArrayList<String> selectedAddons = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_addons);
+        setContentView(R.layout.activity_addons);  // Set the layout for this activity.
 
+        // Initialize buttons and set their click listeners.
         initializeButtons();
 
+        // Get the selected PC model from the intent.
         Intent intent = getIntent();
         selectedPc = intent.getStringExtra("selectedPc");
 
+        // Set click listeners for navigation buttons.
+        setNavigationButtonListeners();
+
+        //Set click listeners for checkboxes
+        setupCheckboxListeners();
+    }
+
+    // Helper method to initialize button styles.
+    private void initializeButtons() {
+        Button aboutButton = findViewById(R.id.aboutButton);
+        Button buildButton = findViewById(R.id.buildButton);
+        Button ordersButton = findViewById(R.id.ordersButton);
+        Button checkoutButton = findViewById(R.id.checkoutButton);
+
+        // Apply a consistent style to all buttons.
+        buttonController.applyStyle(aboutButton, this);
+        buttonController.applyStyle(buildButton, this);
+        buttonController.applyStyle(ordersButton, this);
+        buttonController.applyStyle(checkoutButton, this);
+    }
+
+    // Helper method to set click listeners for navigation buttons.
+    private void setNavigationButtonListeners() {
         Button aboutButton = findViewById(R.id.aboutButton);
         aboutButton.setOnClickListener(v -> startActivity(new Intent(AddonsActivity.this, MainActivity.class)));
 
@@ -35,78 +66,39 @@ public class AddonsActivity extends AppCompatActivity {
 
         Button checkoutButton = findViewById(R.id.checkoutButton);
         checkoutButton.setOnClickListener(v -> navigateToCheckout());
+    }
 
-        // Example: Assuming you have checkboxes for addons
+    // Helper method to set up checkbox listeners.
+    private void setupCheckboxListeners() {
+        // Find checkboxes by ID.
         CheckBox addon1CheckBox = findViewById(R.id.addOn1CheckBox);
         CheckBox addon2CheckBox = findViewById(R.id.addOn2CheckBox);
         CheckBox addon3CheckBox = findViewById(R.id.addOn3CheckBox);
         CheckBox addon4CheckBox = findViewById(R.id.addOn4CheckBox);
         CheckBox addon5CheckBox = findViewById(R.id.addOn5CheckBox);
         CheckBox addon6CheckBox = findViewById(R.id.addOn6CheckBox);
-        // Add more checkboxes as needed
 
-        // Listen for checkbox changes
-        addon1CheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                selectedAddons.add(getString(R.string.AddOn_1)); // Replace with actual addon string
-            } else {
-                selectedAddons.remove(getString(R.string.AddOn_1));
-            }
-        });
+        // Listen for checkbox changes and update the selected addons list accordingly.
+        setupCheckboxListener(addon1CheckBox, R.string.AddOn_1);
+        setupCheckboxListener(addon2CheckBox, R.string.AddOn_2);
+        setupCheckboxListener(addon3CheckBox, R.string.AddOn_3);
+        setupCheckboxListener(addon4CheckBox, R.string.AddOn_4);
+        setupCheckboxListener(addon5CheckBox, R.string.AddOn_5);
+        setupCheckboxListener(addon6CheckBox, R.string.AddOn_6);
+    }
 
-        addon2CheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+    // Helper method to set up individual checkbox listener.
+    private void setupCheckboxListener(CheckBox checkBox, int addonStringResource) {
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
-                selectedAddons.add(getString(R.string.AddOn_2)); // Replace with actual addon string
+                selectedAddons.add(getString(addonStringResource));
             } else {
-                selectedAddons.remove(getString(R.string.AddOn_2));
-            }
-        });
-        // Listen for checkbox changes
-        addon3CheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                selectedAddons.add(getString(R.string.AddOn_3)); // Replace with actual addon string
-            } else {
-                selectedAddons.remove(getString(R.string.AddOn_3));
-            }
-        });
-        // Listen for checkbox changes
-        addon4CheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                selectedAddons.add(getString(R.string.AddOn_4)); // Replace with actual addon string
-            } else {
-                selectedAddons.remove(getString(R.string.AddOn_4));
-            }
-        });
-        // Listen for checkbox changes
-        addon5CheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                selectedAddons.add(getString(R.string.AddOn_5)); // Replace with actual addon string
-            } else {
-                selectedAddons.remove(getString(R.string.AddOn_5));
-            }
-        });
-        // Listen for checkbox changes
-        addon6CheckBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            if (isChecked) {
-                selectedAddons.add(getString(R.string.AddOn_6)); // Replace with actual addon string
-            } else {
-                selectedAddons.remove(getString(R.string.AddOn_6));
+                selectedAddons.remove(getString(addonStringResource));
             }
         });
     }
 
-    private void initializeButtons() {
-        Button aboutButton = findViewById(R.id.aboutButton);
-        Button buildButton = findViewById(R.id.buildButton);
-        Button ordersButton = findViewById(R.id.ordersButton);
-        Button checkoutButton = findViewById(R.id.checkoutButton);
-
-        buttonController.applyStyle(aboutButton, this);
-        buttonController.applyStyle(buildButton, this);
-        buttonController.applyStyle(ordersButton, this);
-        buttonController.applyStyle(checkoutButton, this);
-    }
-
+    // Helper method to navigate to the checkout activity with selected data.
     private void navigateToCheckout() {
         Intent checkoutIntent = new Intent(AddonsActivity.this, CheckoutActivity.class);
         checkoutIntent.putExtra("selectedPc", selectedPc);
